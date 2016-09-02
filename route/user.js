@@ -23,8 +23,8 @@ function init(app, User) {
                 }
 
                 var FCM = require('fcm').FCM;
-                var apiKey = '프로젝트가 같다면 기존 GCM API 코드 쓰면 됨';
-                var fcm = new FCM(apiKey);
+                var apikey = 'AIzaSyA8mgmxDQXjlEt5vqnINzORPHshrifgLqk';
+				var fcm = new FCM(apiKey);
                 var message = {
                     registration_id: result.gcm_token, // required
                     collapse_key: 'Collapse key',
