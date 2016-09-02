@@ -22,23 +22,22 @@ function init(app, User) {
                     throw err;
                 }
 
-                var gcm = require('node-gcm');
-                var message = new gcm.Message({
-                    collapseKey : 'demo',
-                    delayWhileIdle : true,
-                    timeToLive : 3,
-                    data : {
-                        key1 : '테스트',
-                        key2 : 'test'
-                    }
-                });
-                var sender = new gcm.Sender(server_access_key);
-                var registrationIds = [];
-                registrationIds.push(result.gcm_token);
-
-                sender.send(message, registrationIds, 4, function (err, result) {
-                    console.log(result);
-                })
+                var FCM = require('fcm').FCM;
+                var apiKey = '프로젝트가 같다면 기존 GCM API 코드 쓰면 됨';
+                var fcm = new FCM(apiKey);
+                var message = {
+                    registration_id: result.gcm_token, // required
+                    collapse_key: 'Collapse key',
+                    data1: '테스트',
+                    data2: 't으아아아' };
+                    fcm.send(message, function(err, messageId){
+                        if (err) {
+                            console.log("Something has gone wrong!");
+                        }
+                        else {
+                            console.log("Sent with message ID: ", messageId);
+                        }
+                    });
             })
 
         });
