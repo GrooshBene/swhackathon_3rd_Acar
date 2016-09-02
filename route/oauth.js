@@ -19,8 +19,8 @@ function init(app, User) {
     });
 
     passport.use(new FacebookTokenStrategy({
-        clientID : "",
-        clientSecret : "",
+        clientID : "1054469141339805",
+        clientSecret : "969085250385a14771c001d6247d0307",
         profileFields : ['id', 'displayName', 'photos', 'email', 'permissions']
     }, function (accessToken, refreshToken, profile, done) {
         console.log("User Logged In : " + profile);
