@@ -47,8 +47,8 @@ var userSchema = new schema({
 
 var User = mongoose.model('user', userSchema);
 
-server.listen(7800);
-console.log("Server Running At Port 7800");
+server.listen(8000);
+console.log("Server Running At Port 8000");
 
 require('./route/oauth')(app, User);
 
